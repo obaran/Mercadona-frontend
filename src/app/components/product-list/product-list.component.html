@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mercadona - Accueil</title>
+    <title>Mercadona - Liste des Produits/page admin</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <style>
+      .promotion {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
   </head>
   <body class="text-light" style="background-color: #96bea3">
+    <!-- Reprendre le header de la page de base ici -->
     <header class="text-light" style="background-color: #05792e">
       <div class="container">
         <div class="d-flex align-items-center py-4">
@@ -36,7 +43,7 @@
             style="scrollbar-width: thin"
           >
             <li class="nav-item">
-              <a class="nav-link text-white link-info" href="#">Home</a>
+              <a class="nav-link text-white link-info" href="/src/app/app.component.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white link-info" href="#">About</a>
@@ -45,7 +52,9 @@
               <a class="nav-link text-white link-info" href="#">Shopping</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white link-info" href="#"
+              <a
+                class="nav-link text-white link-info"
+                href="#components/product-list/product-list.component.html"
                 >Connexion admin</a
               >
             </li>
@@ -59,296 +68,103 @@
         id="hero"
         class="py-5"
         style="
-          background-image: url(../assets/images/fruits\ et\ legumes3.jpg);
+          background-image: url(/src/assets/images/fruits\ et\ legumes3.jpg);
           background-size: cover;
           background-position: center;
+          height: 10vh;;
         "
       >
         <div class="container">
           <div class="d-flex flex-column flex-column-reverse flex-md-row">
             <div class="col col-md-5 me-md-5">
               <h1 class="fs-1 mb-3 fw-bold text-dark">
-                Bienvenue chez Supermarché Mercadona
+                Bienvenue à vous Admin !
               </h1>
-              <p class="fs-5 text-dark">
-                Votre marché de confiance pour une fraîcheur quotidienne.
-                Découvrez une sélection variée de produits alimentaires, des
-                fruits et légumes de saison aux spécialités locales, le tout
-                dans un cadre accueillant et chaleureux.
-              </p>
-              <p class="fs-5 text-dark">
-                Notre engagement est de vous offrir qualité et variété à des
-                prix compétitifs. Mercadona, l'adresse de toutes vos envies
-                gourmandes !
-              </p>
+              <main class="fs-2 text-dark"> 
+                <section>
+    <article>
+        <h2>Objectif de la page</h2>
+Bienvenue sur votre espace d'administration, le centre de gestion de produits votre boutique en ligne.
+ Ici, vous avez le pouvoir de façonner l'offre de produits à la perfection. Cette page est conçue pour
+  vous offrir une expérience de gestion fluide et intuitive. Commencez par créer un produit en renseignant 
+  les détails essentiels dans le formulaire dédié. Ensuite, mettez en lumière vos articles grâce 
+  à la section de promotions, où vous pouvez appliquer des remises et attirer l'attention sur vos 
+  meilleures offres. Chaque outil est pensé pour vous simplifier la vie et dynamiser vos ventes.
+    </article>
+</section>           
+          </main>
+    <main class="container mt-4">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Gestion des Produits</h2>
+          <form id="productForm">
+            <div class="form-group">
+              <label for="productName">Nom du produit:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="productName"
+                required
+              />
             </div>
-
-            <div class="col col-md-7">
-              <div>
-                <div class="image-fade"></div>
-                <img
-                  class="img-fluid rounded mb-4 mb-md-0"
-                  src="../assets/images/fruits et legumes4.jpg"
-                  alt="image de fruits et legumes "
-                />
-              </div>
+            <div class="form-group">
+              <label for="productCategory">Catégorie:</label>
+              <select class="form-control" id="productCategory">
+                <option>Fruits</option>
+                <option>Légumes</option>
+                <option>Aliments divers</option>
+              </select>
             </div>
-          </div>
+            <div class="form-group form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="promotionCheck"
+              />
+              <label class="form-check-label" for="promotionCheck"
+                >Mettre en promotion</label
+              >
+            </div>
+            <div class="form-group">
+              <label for="productPrice">Prix:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="productPrice"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="discountPercentage">Pourcentage de promotion:</label>
+              <input
+                type="number"
+                class="form-control"
+                id="discountPercentage"
+                disabled
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Créer Produit</button>
+          </form>
         </div>
-      </section>
-      <div class="py-5">
-        <div class="container">
-          <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/fraise.jpg"
-                  alt="image fraise"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Fraise "Savourez la douceur naturelle de nos fraises
-                      fraîchement cueillies. Parfaites pour vos desserts
-                      maison." Prix : 3,99€/kg
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/mûre.jpg"
-                  alt="image mûre"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Mûres "Des mûres juteuses, uniques et gorgées de saveurs,
-                      cueillies à maturité pour une qualité premium." Prix :
-                      4,50€/barquette
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/cerise.jpg"
-                  alt="image cerise"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Cerise "Cerises croquantes et sucrées, un régal estival
-                      qui ravit les papilles à chaque bouchée." Prix : 5,00€/kg
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/aubergine.jpg"
-                  alt="image aubergine"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Aubergine "Nos aubergines lisses et brillantes sont
-                      l'ingrédient idéal pour vos gratins et moussakas." Prix :
-                      2,99€/kg
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/carotte.jpg"
-                  alt="image carotte"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Carotte "Carottes croquantes et nutritives, parfaites pour
-                      vos potages ou râpées en salade maison." Prix : 1,50€/kg
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
+      </div>
 
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/tomate.jpg"
-                  alt="image tomate"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Tomate "Tomates rouges vives, gorgées de soleil, elles
-                      apporteront une touche de fraîcheur à vos salades." Prix :
-                      2,50€/kg
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/soja.jpg"
-                  alt="image soja vert"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Soja vert "Profitez des bienfaits du soja vert, idéal pour
-                      vos recettes végétariennes et salades." Prix : 1,99€/500g
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/pain.jpg"
-                  alt="image pain"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Pain au blé complet "Pain croustillant au blé complet,
-                      parfait pour un petit-déjeuner sain et riche en fibres."
-                      Prix : 2,50€/unité
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/beurre.jpg"
-                  alt="image beurre"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Beurre fait maison "Beurre onctueux fait maison, la touche
-                      authentique pour sublimer vos tartines et recettes." Prix
-                      : 3,00€/250g
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/miel.jpg"
-                  alt="image miel"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Miel "Miel pur et naturel, sucré à souhait pour adoucir
-                      vos thés ou accompagner vos toasts." Prix : 6,00€/pot
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/confiture.jpg"
-                  alt="image confiture"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Confiture de fraise maison "Confiture de fraise préparée à
-                      la maison, avec des fruits sélectionnés au goût intense."
-                      Prix : 4,00€/pot
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card bg-dark border-0">
-                <img
-                  class="card-img-top"
-                  src="../assets/images/beurre de cacahuete.jpg"
-                  alt="image beurre de cacahuète"
-                />
-                <div class="card-body">
-                  <a
-                    class="text-light link-info bg-info text-decoration-none"
-                    href="#"
-                  >
-                    <h2 class="fs-5">
-                      Beurre de cacahuète "Beurre de cacahuète crémeux et riche,
-                      une source d'énergie parfaite pour démarrer la journée."
-                      Prix : 2,99€/pot
-                    </h2>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <h3>Liste des Produits en Promotion</h3>
+          <table class="table table-dark">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Catégorie</th>
+                <th>Prix Original</th>
+                <th>Pourcentage de Promotion</th>
+                <th>Prix Remisé</th>
+              </tr>
+            </thead>
+            <tbody id="promotionList">
+              <!-- Les produits en promotion seront ajoutés ici -->
+            </tbody>
+          </table>
         </div>
       </div>
     </main>
@@ -470,13 +286,21 @@
         </div>
       </div>
     </footer>
-
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script>
       function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
       }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      // Ici, vous ajouterez le script pour gérer la logique du formulaire,
+      // le calcul automatique du prix remisé et l'affichage des produits dans la liste.
     </script>
   </body>
 </html>
