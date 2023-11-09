@@ -47,15 +47,85 @@
             <li class="nav-item">
               <a
                 class="nav-link text-white link-info"
-                href="components/product-list/product-list.component.html"
-                >Connexion admin</a
+                href="#"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
               >
+                Connexion admin
+              </a>
             </li>
+            <!-- Modale de connexion admin -->
+            <div
+              class="modal fade"
+              id="loginModal"
+              tabindex="-1"
+              aria-labelledby="loginModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content" style="background-color: #96bea3">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">
+                      Connexion Admin
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <form
+                      id="loginForm"
+                      action="PATH_TO_YOUR_AUTHENTICATION_SCRIPT"
+                      method="post"
+                    >
+                      <div class="mb-3">
+                        <label for="username" class="col-form-label"
+                          >Nom d'utilisateur:</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="username"
+                          name="username"
+                          required
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label for="password" class="col-form-label"
+                          >Mot de passe:</label
+                        >
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          name="password"
+                          required
+                        />
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Fermer
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                          Connexion
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
           </ul>
         </div>
       </div>
     </header>
-
     <main>
       <section
         id="hero"
@@ -452,7 +522,7 @@
               <button
                 type="button"
                 class="btn btn-dark btn-sm pt-0"
-                onclick="topFunction()"
+                (click)="topFunction()"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -472,13 +542,5 @@
         </div>
       </div>
     </footer>
-
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
-    <script>
-      function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }
-    </script>
   </body>
 </html>

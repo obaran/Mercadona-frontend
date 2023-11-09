@@ -8,6 +8,9 @@ import { Product } from '../../models/product.model';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  topFunction() {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }
   products: Product[] = [];
 
   constructor(private productService: ProductService) { }

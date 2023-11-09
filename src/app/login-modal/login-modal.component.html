@@ -1,0 +1,59 @@
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #96bea3">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Connexion Admin</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Début du formulaire de connexion -->
+        <form (ngSubmit)="onLogin()">
+          <div class="mb-3">
+            <label for="username" class="col-form-label"
+              >Nom d'utilisateur:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="username"
+              name="username"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="col-form-label">Mot de passe:</label>
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="password"
+              name="password"
+              required
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fermer
+            </button>
+            <button type="submit" class="btn btn-primary">Connexion</button>
+          </div>
+        </form>
+        <!-- Fin du formulaire de connexion -->
+      </div>
+    </div>
+  </div>
+</div>
