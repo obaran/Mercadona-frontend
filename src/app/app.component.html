@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mercadona - Accueil</title>
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+    /> -->
   </head>
   <body class="text-light" style="background-color: #96bea3">
     <header class="text-light" style="background-color: #05792e">
@@ -36,32 +36,29 @@
             style="scrollbar-width: thin"
           >
             <li class="nav-item">
-              <a class="nav-link text-white link-info" href="#">Home</a>
+              <a class="nav-link text-white link-info" routerLink="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white link-info" href="#">About</a>
+              <a class="nav-link text-white link-info" routerLink="/about"
+                >About</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white link-info" href="#">Shopping</a>
+              <a class="nav-link text-white link-info" routerLink="/Shopping"
+                >Shopping</a
+              >
             </li>
             <li class="nav-item">
               <a
                 class="nav-link text-white link-info"
-                href="#"
-                data-bs-toggle="modal"
-                data-bs-target="#loginModal"
+                href="javascript:void(0);"
+                (click)="openLoginModal()"
               >
                 Connexion admin
               </a>
             </li>
             <!-- Modale de connexion admin -->
-            <div
-              class="modal fade"
-              id="loginModal"
-              tabindex="-1"
-              aria-labelledby="loginModalLabel"
-              aria-hidden="true"
-            >
+            <ng-template #loginModalTemplate>
               <div class="modal-dialog">
                 <div class="modal-content" style="background-color: #96bea3">
                   <div class="modal-header">
@@ -71,16 +68,12 @@
                     <button
                       type="button"
                       class="btn-close"
-                      data-bs-dismiss="modal"
+                      (click)="bsModalRef.hide()"
                       aria-label="Close"
                     ></button>
                   </div>
                   <div class="modal-body">
-                    <form
-                      id="loginForm"
-                      action="PATH_TO_YOUR_AUTHENTICATION_SCRIPT"
-                      method="post"
-                    >
+                    <form id="loginForm" (ngSubmit)="onLogin()">
                       <div class="mb-3">
                         <label for="username" class="col-form-label"
                           >Nom d'utilisateur:</label
@@ -89,6 +82,7 @@
                           type="text"
                           class="form-control"
                           id="username"
+                          [(ngModel)]="username"
                           name="username"
                           required
                         />
@@ -101,6 +95,7 @@
                           type="password"
                           class="form-control"
                           id="password"
+                          [(ngModel)]="password"
                           name="password"
                           required
                         />
@@ -109,7 +104,7 @@
                         <button
                           type="button"
                           class="btn btn-secondary"
-                          data-bs-dismiss="modal"
+                          (click)="bsModalRef.hide()"
                         >
                           Fermer
                         </button>
@@ -121,7 +116,15 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </ng-template>
+            <li class="nav-item" *ngIf="authService.isLoggedIn()">
+              <button
+                class="nav-link btn btn-link text-white"
+                (click)="authService.logout()"
+              >
+                Déconnexion
+              </button>
+            </li>
           </ul>
         </div>
       </div>
@@ -543,4 +546,5 @@
       </div>
     </footer>
   </body>
+  <!-- </html> -->
 </html>

@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BsModalRef } from 'ngx-bootstrap/modal';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+interface LoginResponse {
+  token: string;
+}
 
 @Component({
   selector: 'app-login-modal',
@@ -12,27 +19,25 @@ export class LoginModalComponent {
   password: string = '';
 
   // Injecter HttpClient pour faire des requêtes HTTP
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+     public bsModalRef: BsModalRef,
+     private router: Router,
+     private toastr: ToastrService 
+    ) {}
 
   // Méthode pour gérer la connexion de l'utilisateur
   onLogin() {
-    // La logique qui devrait être exécutée lorsque l'utilisateur essaie de se connecter
-    console.log('Tentative de connexion avec', this.username, this.password);
-
-    // Remplacez 'your-api-url' par l'URL de votre point de terminaison d'authentification
-    this.http.post('your-api-url', { username: this.username, password: this.password })
+    this.http.post<LoginResponse>('http://localhost:3331/api/auth', { username: this.username, password: this.password })
       .subscribe({
         next: (response) => {
-          // Vous devez adapter la logique de gestion des réponses en fonction de la structure de votre réponse API
           console.log('Connexion réussie', response);
-          // Gérer la réponse de connexion réussie, comme enregistrer le jeton, rediriger l'utilisateur, etc.
+          localStorage.setItem('access_token', response.token);
+          this.bsModalRef.hide();
+          this.router.navigate(['/product-list']); // Redirection
         },
         error: (error) => {
-          console.error('Erreur de connexion', error);
-          // Gérer l'erreur de connexion, comme afficher un message à l'utilisateur
+          this.toastr.error('Erreur de connexion ! Veuillez vérifier vos identifiants.'); // Affiche un toast d'erreur
         }
       });
     }
-
-  // Les autres méthodes et propriétés de votre composant iront ici
 }

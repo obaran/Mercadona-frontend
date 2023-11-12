@@ -15,7 +15,12 @@ describe('LoginModalComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should have username and password input fields', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    const usernameInput = compiled.querySelector('input[name="username"]');
+    const passwordInput = compiled.querySelector('input[name="password"]');
+    expect(usernameInput).toBeTruthy();
+    expect(passwordInput).toBeTruthy();
   });
+  
 });

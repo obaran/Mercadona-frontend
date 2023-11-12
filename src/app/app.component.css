@@ -15,7 +15,7 @@
   }
    */
 
-   .image-fade::after {
+   /* .image-fade::after {
     content: '';
     position: absolute;
     top: 0;
@@ -25,4 +25,4 @@
     background: radial-gradient(circle, transparent, transparent 50%, rgba(0, 0, 0, 0.5) 100%);
     pointer-events: none;
   }
-  
+   */

@@ -1,18 +1,22 @@
-<div
-  class="modal fade"
-  id="loginModal"
-  tabindex="-1"
-  aria-labelledby="loginModalLabel"
-  aria-hidden="true"
->
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mercadona - Accueil</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
   <div class="modal-dialog">
     <div class="modal-content" style="background-color: #96bea3">
       <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Connexion Admin</h5>
+        <h5 class="modal-title">Connexion Admin</h5>
         <button
           type="button"
           class="btn-close"
-          data-bs-dismiss="modal"
+          (click)="bsModalRef.hide()"
           aria-label="Close"
         ></button>
       </div>
@@ -45,7 +49,7 @@
             <button
               type="button"
               class="btn btn-secondary"
-              data-bs-dismiss="modal"
+              (click)="bsModalRef.hide()"
             >
               Fermer
             </button>
@@ -56,4 +60,4 @@
       </div>
     </div>
   </div>
-</div>
+</html>

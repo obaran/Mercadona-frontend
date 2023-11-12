@@ -1,13 +1,53 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service'; // Assurez-vous que le chemin est correct
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
+  // Variables pour stocker les identifiants de l'utilisateur
+  username: string = '';
+  password: string = '';
+  bsModalRef!: BsModalRef;
+  @ViewChild('loginModalTemplate') loginModalTemplate!: TemplateRef<any>;
+
+
+  constructor(private router: Router, public authService: AuthService,
+    private modalService: BsModalService
+    ) {}
+
+  openLoginModal() {
+  this.bsModalRef = this.modalService.show(this.loginModalTemplate); 
+  }
+
+  onLogin() {
+    this.authService.login(this.username, this.password).subscribe({
+      next: (result) => {
+        if (result.success) {
+          // Cacher la modal après la connexion réussie
+      this.bsModalRef.hide();
+      this.router.navigate(['/products'])
+        } else {
+          // Afficher un message d'erreur
+          alert('Nom d’utilisateur ou mot de passe incorrect.');
+        }
+      },
+      error: (error) => {
+        // Gérer l'erreur de connexion ici
+        alert('Une erreur est survenue pendant la connexion.');
+      }
+    });
+  }
+
   topFunction() {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }
+
   title = 'mercadona';
 }
