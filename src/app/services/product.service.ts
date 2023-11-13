@@ -9,7 +9,7 @@ import { Product } from '../models/product.model';
 })
 export class ProductService {
 
-  private baseUrl = 'http://localhost:3331`/api/products'; // Remplace par l'URL de ton API
+  private baseUrl = 'http://localhost:3331`/products'; // Remplace par l'URL de ton API
 
   constructor(private http: HttpClient) { }
 

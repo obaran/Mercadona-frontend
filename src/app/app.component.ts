@@ -2,6 +2,7 @@ import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service'; // Assurez-vous que le chemin est correct
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ProductService } from './services/product.service';
 
 @Component({
   selector: 'app-root',
@@ -18,9 +19,15 @@ export class AppComponent {
   @ViewChild('loginModalTemplate') loginModalTemplate!: TemplateRef<any>;
 
 
-  constructor(private router: Router, public authService: AuthService,
-    private modalService: BsModalService
+  constructor(private router: Router, private authService: AuthService,
+    private modalService: BsModalService,
+    private productService: ProductService
     ) {}
+    
+    ngOnInit(){
+      const products=this.productService.getProducts();
+      console.log(products)
+    }
 
   openLoginModal() {
   this.bsModalRef = this.modalService.show(this.loginModalTemplate); 

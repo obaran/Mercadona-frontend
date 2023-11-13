@@ -1,63 +1,51 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mercadona - Accueil</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-  </head>
-  <div class="modal-dialog">
-    <div class="modal-content" style="background-color: #96bea3">
-      <div class="modal-header">
-        <h5 class="modal-title">Connexion Admin</h5>
-        <button
-          type="button"
-          class="btn-close"
-          (click)="bsModalRef.hide()"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body">
-        <!-- Début du formulaire de connexion -->
-        <form (ngSubmit)="onLogin()">
-          <div class="mb-3">
-            <label for="username" class="col-form-label"
-              >Nom d'utilisateur:</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              [(ngModel)]="username"
-              name="username"
-              required
-            />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="col-form-label">Mot de passe:</label>
-            <input
-              type="password"
-              class="form-control"
-              [(ngModel)]="password"
-              name="password"
-              required
-            />
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              (click)="bsModalRef.hide()"
-            >
-              Fermer
-            </button>
-            <button type="submit" class="btn btn-primary">Connexion</button>
-          </div>
-        </form>
-        <!-- Fin du formulaire de connexion -->
-      </div>
+<div class="modal-dialog">
+  <div class="modal-content" style="background-color: #96bea3">
+    <div class="modal-header">
+      <h5 class="modal-title">Connexion Admin</h5>
+      <button
+        type="button"
+        class="btn-close"
+        (click)="bsModalRef.hide()"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body">
+      <!-- Début du formulaire de connexion -->
+      <form (ngSubmit)="onLogin()">
+        <div class="mb-3">
+          <label for="username" class="col-form-label"
+            >Nom d'utilisateur:</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="username"
+            name="username"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="col-form-label">Mot de passe:</label>
+          <input
+            type="password"
+            class="form-control"
+            [(ngModel)]="password"
+            name="password"
+            required
+          />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="bsModalRef.hide()"
+          >
+            Fermer
+          </button>
+          <button type="submit" class="btn btn-primary">Connexion</button>
+        </div>
+      </form>
+      <!-- Fin du formulaire de connexion -->
     </div>
   </div>
-</html>
+</div>
