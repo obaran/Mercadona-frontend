@@ -27,7 +27,7 @@ export class LoginModalComponent {
 
   // Méthode pour gérer la connexion de l'utilisateur
   onLogin() {
-    this.http.post<LoginResponse>('http://localhost:3331/api/auth', { username: this.username, password: this.password })
+    this.http.post<LoginResponse>('http://localhost:3331/auth', { username: this.username, password: this.password })
       .subscribe({
         next: (response) => {
           console.log('Connexion réussie', response);
