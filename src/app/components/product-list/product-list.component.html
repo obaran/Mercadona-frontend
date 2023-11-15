@@ -103,18 +103,6 @@
                         <option>Aliments divers</option>
                       </select>
                     </div>
-                    <div class="form-group form-check">
-                      <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="promotionCheck"
-                        [(ngModel)]="isPromotionEnabled"
-                        (change)="toggleDiscountField()"
-                      />
-                      <label class="form-check-label" for="promotionCheck"
-                        >Mettre en promotion</label
-                      >
-                    </div>
                     <div class="form-group">
                       <label for="productPrice">Prix:</label>
                       <input
@@ -122,7 +110,22 @@
                         class="form-control"
                         id="productPrice"
                         required
+                        min="0"
+                        step="0.01"
+                        oninput="validity.valid||(value='');"
                       />
+                      <div class="form-group form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          id="promotionCheck"
+                          [(ngModel)]="isPromotionEnabled"
+                          (change)="toggleDiscountFields()"
+                        />
+                        <label class="form-check-label" for="promotionCheck"
+                          >Mettre en promotion</label
+                        >
+                      </div>
                     </div>
                     <div class="form-group">
                       <label for="discountPercentage"
@@ -132,7 +135,23 @@
                         type="number"
                         class="form-control"
                         id="discountPercentage"
-                        disabled
+                        min="0"
+                        max="100"
+                        step="0"
+                        oninput="validity.valid||(value='');"
+                        [disabled]="!isPromotionEnabled"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="prix final remisé">Prix final remisé:</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="prix remisé"
+                        min="0"
+                        step="0.01"
+                        oninput="validity.valid||(value='');"
+                        [disabled]="!isPromotionEnabled"
                       />
                     </div>
                     <div class="form-group">
@@ -142,7 +161,7 @@
                         class="form-control"
                         id="startDate"
                         name="startDate"
-                        required
+                        [disabled]="!isPromotionEnabled"
                       />
                     </div>
                     <div class="form-group">
@@ -152,7 +171,7 @@
                         class="form-control"
                         id="endDate"
                         name="endDate"
-                        required
+                        [disabled]="!isPromotionEnabled"
                       />
                     </div>
 

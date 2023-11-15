@@ -18,19 +18,19 @@ export class ProductListComponent implements OnInit {
   }
   products: Product[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {
+    console.log("Bienvenu")
+   }
 
   ngOnInit() {
+    console.log("Bienvenu")
     this.productService.getProducts().subscribe(data => {
       this.products = data;
     });
   }
 
-  toggleDiscountField() {
-    // Cette méthode peut être utilisée pour faire d'autres actions en plus de changer l'état
-    // Par exemple, réinitialiser le pourcentage de promotion à 0 si la promotion n'est pas activée
-    if (!this.isPromotionEnabled) {
-      // Réinitialisez ici le pourcentage de promotion si nécessaire
+    toggleDiscountFields() {
+      this.isPromotionEnabled = !this.isPromotionEnabled;
     }
   }
-}
+

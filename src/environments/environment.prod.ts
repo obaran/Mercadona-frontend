@@ -4,4 +4,3 @@ export const environment = {
   };
   
 
-//rappel commande pour la production:   ng build --prod

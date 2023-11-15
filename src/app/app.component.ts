@@ -1,6 +1,6 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './services/auth.service'; // Assurez-vous que le chemin est correct
+import { AuthService } from './services/auth.service'; 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ProductService } from './services/product.service';
 
@@ -36,10 +36,10 @@ export class AppComponent {
   onLogin() {
     this.authService.login(this.username, this.password).subscribe({
       next: (result) => {
-        if (result.success) {
+        if (result) {
           // Cacher la modal après la connexion réussie
       this.bsModalRef.hide();
-      this.router.navigate(['/products'])
+      this.router.navigate(['/product-list'])
         } else {
           // Afficher un message d'erreur
           alert('Nom d’utilisateur ou mot de passe incorrect.');
@@ -47,7 +47,7 @@ export class AppComponent {
       },
       error: (error) => {
         // Gérer l'erreur de connexion ici
-        alert('Une erreur est survenue pendant la connexion.');
+       console.log(error);
       }
     });
   }

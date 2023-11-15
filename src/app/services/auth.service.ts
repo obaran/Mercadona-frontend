@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment'; 
 
+export class LoginResponse {
+  token!: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,9 +23,9 @@ export class AuthService {
   }
 
   login(username: string, password: string) {
-    return this.http.post<any>(`${this.authUrl}/signin`, { username, password })
-      .pipe(map((response: any) => {
-        localStorage.setItem('currentUser', JSON.stringify(response));
+    return this.http.post<LoginResponse>(`${this.authUrl}/login`, { username, password })
+      .pipe(map((response: LoginResponse) => {
+       localStorage.setItem('currentUser', JSON.stringify(response));
         return response;
       }));
   }
