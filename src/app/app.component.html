@@ -47,65 +47,7 @@
             </a>
           </li>
           <!-- Modale de connexion admin -->
-          <ng-template #loginModalTemplate>
-            <div class="modal-dialog">
-              <div class="modal-content" style="background-color: #96bea3">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="loginModalLabel">
-                    Connexion Admin
-                  </h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    (click)="bsModalRef.hide()"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div class="modal-body">
-                  <form id="loginForm" (ngSubmit)="onLogin()">
-                    <div class="mb-3">
-                      <label for="username" class="col-form-label"
-                        >Nom d'utilisateur:</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="username"
-                        [(ngModel)]="username"
-                        name="username"
-                        required
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label for="password" class="col-form-label"
-                        >Mot de passe:</label
-                      >
-                      <input
-                        type="password"
-                        class="form-control"
-                        id="password"
-                        [(ngModel)]="password"
-                        name="password"
-                        required
-                      />
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        (click)="bsModalRef.hide()"
-                      >
-                        Fermer
-                      </button>
-                      <button type="submit" class="btn btn-primary">
-                        Connexion
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </ng-template>
+          <!-- <ng-template #loginModalTemplate> </ng-template> -->
           <!-- <li class="nav-item" *ngIf="authService.isLoggedIn()">
               <button
                 class="nav-link btn btn-link text-white"
