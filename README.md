@@ -1,27 +1,38 @@
-# Mercadona
+# Mercadona - Supermarché
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+## Introduction
+Mercadona est une application de gestion de supermarché conçue pour faciliter la gestion des produits, les promotions et l'administration des utilisateurs. Ce projet est structuré en une application front-end Angular et une API back-end Spring Boot.
 
-## Development server
+## Fonctionnalités
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Interface utilisateur intuitive** : Design épuré et réactif pour une expérience utilisateur optimale sur tous les appareils.
+- **Connexion/Administration** : Permet aux administrateurs de se connecter pour gérer les produits et les utilisateurs.
+- **Liste de produits** : Affiche les produits disponibles avec pagination, recherche et filtrage.
+- **Détails du produit** : Offre une vue détaillée pour chaque produit, avec des options de modification pour les administrateurs.
+- **Panier d'achat** : Permet aux utilisateurs d'ajouter des produits à un panier et de passer une commande.
+- **Gestion de compte** : Les utilisateurs peuvent créer des comptes, se connecter, et gérer leurs informations.
+- **Responsive Design** : S'adapte à la taille de l'écran pour garantir une bonne expérience sur mobiles et tablettes.
+- **Internationalisation** : Supporte plusieurs langues pour atteindre un public global.
+- **Notifications et alertes** : Informe les utilisateurs des actions réussies ou des erreurs.
+- **Validation de formulaire** : Assure que les données entrées dans les formulaires respectent les contraintes et formats requis.
 
-## Code scaffolding
+  
+## Prérequis
+Pour exécuter l'application en local, vous devez avoir installé :
+Pour exécuter ce projet, vous aurez besoin de:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Node.js](https://nodejs.org/) (version LTS recommandée)
+- [Angular CLI](https://angular.io/cli) (dernière version stable)
 
-## Build
+## Installation
+Pour mettre en place l'environnement de développement, suivez ces étapes :
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clonez le dépôt: https://github.com/obaran/Mercadona-frontend
+3. Installez les dépendances : `npm install` ou `yarn install`.
+4. Lancez le serveur de développement : `npm start` ou `yarn start`.
+5. Ouvrez votre navigateur et allez sur `http://localhost:4200`
 
-## Running unit tests
+ ## Licence
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Ce projet est distribué sous la licence MIT. Voir `LICENSE` pour plus d'informations contacter moi par mail Onur Baran :  o.baranonur@gmail.com  
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
