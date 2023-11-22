@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    apiBaseUrl: 'https://yourdomain.com/api' // l'URL  API backend en production
+    apiBaseUrl: 'https://mercadona2023-bdad3fbbae02.herokuapp.com/' // l'URL  API backend en production
   };
   
 

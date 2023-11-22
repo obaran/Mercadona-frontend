@@ -16,7 +16,7 @@ export class LoginModalComponent {
   username: string = '';
   password: string = '';
 
-  // Injecter HttpClient pour faire des requêtes HTTP
+  // Injection HttpClient pour faire des requêtes HTTP
   constructor(private http: HttpClient,
      public bsModalRef: BsModalRef,
      private router: Router,
@@ -36,7 +36,7 @@ export class LoginModalComponent {
           this.router.navigate(['product-list']); // Redirection
         },
         error: (error) => {
-          this.toastr.error('Erreur de connexion ! Veuillez vérifier vos identifiants.'); // Affiche un toast d'erreur
+          this.toastr.error('Erreur de connexion ! Veuillez vérifier vos identifiants.'); // Affichage un toast d'erreur
         }
       });
     }

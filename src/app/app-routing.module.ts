@@ -5,7 +5,7 @@ import {BrowserModule} from "@angular/platform-browser";
 
 
 const routes: Routes = [
-{ path:  'product-list', component: ProductListComponent },
+{ path:  'product-list', component: ProductListComponent, },
 
 ];
 @NgModule({
