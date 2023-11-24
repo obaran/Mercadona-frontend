@@ -31,4 +31,3 @@ export class ProductListComponent implements OnInit {
       this.isPromotionEnabled = !this.isPromotionEnabled;
     }
   }
-
